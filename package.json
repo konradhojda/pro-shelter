@@ -9,6 +9,8 @@
     "start": "next start"
   },
   "dependencies": {
+    "@types/antd": "^1.0.0",
+    "antd": "^4.21.3",
     "axios": "^0.27.2",
     "next": "12.1.6",
     "prettier": "^2.7.1",

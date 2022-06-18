@@ -1,5 +1,7 @@
+import Flex from "../../Flex/Flex";
+
 export const Footer = () => {
-  return <div>footer</div>;
+  return <Flex as="footer">footer</Flex>;
 };
 
 export default Footer;

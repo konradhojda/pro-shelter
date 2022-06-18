@@ -1,19 +1,20 @@
-import React, { Fragment } from "react";
-import Flex from "../Flex/Flex";
+import React from "react";
+import Container from "../Container/Container";
 import Footer from "./Footer/Footer";
 import Header from "./Header/Header";
 import Logo from "./Logo/Logo";
+import HeaderItems from "./Header/HeaderItems";
 
 export const Layout = ({ children }: React.PropsWithChildren) => {
   return (
-    <Fragment>
-      <Flex>
+    <Container>
+      <Header>
         <Logo />
-        <Header />
-      </Flex>
+        <HeaderItems />
+      </Header>
       {children}
       <Footer />
-    </Fragment>
+    </Container>
   );
 };
 
