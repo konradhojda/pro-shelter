@@ -3,6 +3,7 @@ import styled from "styled-components";
 interface Props {
   backgroundColor?: string;
   justifyContent?: string;
+  flexDirection?: string;
   alignItems?: string;
 }
 
@@ -12,4 +13,5 @@ export const Flex = styled.div<Props>`
   background-color: ${(props) => props.backgroundColor};
   justify-content: ${(props) => props.justifyContent};
   align-items: ${(props) => props.alignItems};
+  flex-direction: ${(props) => props.flexDirection};
 `;

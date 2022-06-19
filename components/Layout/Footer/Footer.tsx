@@ -1,7 +1,14 @@
+import Container from "../../Container/Container";
 import Flex from "../../Flex/Flex";
 
 export const Footer = () => {
-  return <Flex as="footer">footer</Flex>;
+    return (
+        <footer>
+            <Container>
+                <Flex>footer</Flex>
+            </Container>
+        </footer>
+    );
 };
 
 export default Footer;

@@ -1,12 +1,19 @@
+import Container from "../../Container/Container";
 import Flex from "../../Flex/Flex";
-import React from "react";
+import Logo from "../Logo/Logo";
+import NavigationItems from "./Navigation/NavigationItems";
 
-export const Header = ({ children }: React.PropsWithChildren) => {
-  return (
-    <Flex as="header" justifyContent="space-between">
-      {children}
-    </Flex>
-  );
+export const Header = () => {
+    return (
+        <header>
+            <Container>
+                <Flex justifyContent="space-between" alignItems="center">
+                    <Logo/>
+                    <NavigationItems/>
+                </Flex>
+            </Container>
+        </header>
+    );
 };
 
 export default Header;
