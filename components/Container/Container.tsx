@@ -6,10 +6,10 @@ interface Props {
 }
 
 export const Container = ({
-                            minHeight,
-                            children,
-                          }: React.PropsWithChildren<Props>) => (
-    <S.Container minHeight={minHeight}>{children}</S.Container>
+  minHeight,
+  children,
+}: React.PropsWithChildren<Props>) => (
+  <S.Container minHeight={minHeight}>{children}</S.Container>
 );
 
 export default Container;

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { useRouter } from "next/router";
 import * as S from "./NavigationItems.style";
 
 interface Items {
@@ -13,27 +13,28 @@ const items: Items[] = [
   },
   {
     name: "O nas",
-    href: "/o-nas",
+    href: "/about",
   },
   {
     name: "Kontakt",
-    href: "/kontakt",
+    href: "/contact",
   },
   {
     name: "Rejestracja",
-    href: "/rejestracja",
+    href: "/register",
   },
 ];
 
 export const NavigationItems = () => {
+  const { asPath } = useRouter();
   return (
-      <S.Ul>
-        {items.map((item) => (
-            <S.Li key={item.name}>
-              <Link href={item.href}>{item.name}</Link>
-            </S.Li>
-        ))}
-      </S.Ul>
+    <S.Ul>
+      {items.map((item) => (
+        <S.Li key={item.name} className={asPath === item.href ? "active" : ""}>
+          <S.NavigationLink href={item.href}>{item.name}</S.NavigationLink>
+        </S.Li>
+      ))}
+    </S.Ul>
   );
 };
 
