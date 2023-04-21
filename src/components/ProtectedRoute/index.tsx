@@ -12,13 +12,13 @@ export default function ProtectedRoute({
   children,
 }: PropsWithChildren<Props>) {
   const { data, status } = useSession();
-  const isProtected = router.asPath.includes("/admin");
+  const isProtected = router.asPath.includes("/admin/");
 
   if (status === "loading") {
     return <h1>Loading...</h1>;
   }
 
-  if (!data && isProtected && !router.isReady) {
+  if (!data && isProtected && router.isReady) {
     router.push("/admin");
   }
 
