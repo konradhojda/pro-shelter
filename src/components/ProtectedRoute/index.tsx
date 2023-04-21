@@ -6,7 +6,7 @@ import Dashboard from "../Admin";
 interface Props {
   router: Router;
 }
-
+//
 export default function ProtectedRoute({
   router,
   children,
