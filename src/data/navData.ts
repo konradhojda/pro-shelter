@@ -4,4 +4,5 @@ export const data = [
   { name: "Categories", href: "/categories" },
   { name: "Orders", href: "/orders" },
   { name: "Cart", href: "/cart" },
+  { name: "Admin", href: "/admin" },
 ];

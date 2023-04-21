@@ -1,25 +1,28 @@
-import { useSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { data } from "../../data/adminRouting";
 import CircleStack from "../Icons/circleStack";
 
 export default function Dashboard() {
   const { data: session, status } = useSession();
-  console.log(session, status);
   return (
-    <div className="admin flex flex-col bg-black min-h-screen">
+    <div id="adminPanel" className="flex flex-col container">
       <p className="text-white">{session?.user?.email}</p>
-
-      <div className="flex flex-col">
+      <ul className="flex justify-end gap-4">
         {data.map((item) => {
           return (
-            <Link href={item.href} key={item.href}>
-              <CircleStack />
-              <p className="text-white">{item.name}</p>
-            </Link>
+            <li key={item.href}>
+              <Link href={item.href} key={item.href} className="flex">
+                <CircleStack />
+                <p>{item.name}</p>
+              </Link>
+            </li>
           );
         })}
-      </div>
+        <li>
+          <button onClick={() => signOut()}>Wyloguj</button>
+        </li>
+      </ul>
     </div>
   );
 }
