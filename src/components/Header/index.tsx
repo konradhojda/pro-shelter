@@ -1,18 +1,15 @@
+import { HeaderLinkProps } from "../../data/navData";
 import Navigation from "./Navigation";
 interface Props {
   isVisible?: boolean;
+  data: HeaderLinkProps[];
 }
 
-const nav = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Mission", href: "/mission" },
-];
-
-export const Header = ({ ...rest }: Props) => {
+export const Header = ({ data }: Props) => {
+  console.log(data);
   return (
     <header className="fixed top-0 w-full z-10 bg-white h-[50px]">
-      <Navigation />
+      <Navigation data={data} />
     </header>
   );
 };

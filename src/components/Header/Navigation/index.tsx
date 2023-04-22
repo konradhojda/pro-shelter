@@ -1,7 +1,10 @@
 import Link from "next/link";
-import { data } from "../../../data/navData";
+import { HeaderLinkProps } from "../../../data/navData";
 
-export default function Navigation() {
+interface Props {
+  data: HeaderLinkProps[];
+}
+export default function Navigation({ data }: Props) {
   return (
     <div className="container mx-auto">
       <div className="flex justify-between items-center">
