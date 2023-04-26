@@ -8,7 +8,7 @@ interface Props {
 export const Header = ({ data }: Props) => {
   console.log(data);
   return (
-    <header className="fixed top-0 w-full z-10 bg-white h-[50px]">
+    <header className="sticky top-0 w-full z-10 bg-white">
       <Navigation data={data} />
     </header>
   );

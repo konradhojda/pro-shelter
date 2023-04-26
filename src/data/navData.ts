@@ -1,7 +1,9 @@
+export type userRole = "admin" | "user" | "logged_user";
+
 export interface HeaderLinkProps {
   name: string;
   href: string;
-  protected?: boolean;
+  requiredRank?: userRole;
 }
 
 export const clientRoutingData: HeaderLinkProps[] = [
@@ -10,7 +12,8 @@ export const clientRoutingData: HeaderLinkProps[] = [
   { name: "Categories", href: "/categories" },
   { name: "Orders", href: "/orders" },
   { name: "Cart", href: "/cart" },
-  { name: "Admin", href: "/admin", protected: true },
+  { name: "Contact", href: "/contact" },
+  { name: "Admin", href: "/admin", requiredRank: "admin" },
 ];
 
 export const adminRoutingData: HeaderLinkProps[] = [
