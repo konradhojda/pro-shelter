@@ -1,7 +1,7 @@
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { Fragment } from "react";
-import { HeaderLinkProps, Ranks } from "../../../data/navData";
+import { HeaderLinkProps } from "../../../data/navData";
 import { hasRequiredRank } from "../../../libs/hasRequiredRank";
 import Logo from "../Logo/Logo";
 
@@ -14,23 +14,31 @@ export default function Navigation({ data }: Props) {
   return (
     <div className="container mx-auto">
       <div className="flex justify-between items-center">
-        <Logo />
+        <Link href="/">
+          <Logo />
+        </Link>
         <ul className="flex gap-3">
           {data.map((item) => {
-            console.log(item.requiredRank, "ADMIN" === Ranks.ADMIN);
             return (
-              <Fragment key="">
-                {hasRequiredRank(item.requiredRank, data && "ADMIN") && (
+              <Fragment key={item.href}>
+                {hasRequiredRank(
+                  item.requiredRank,
+                  user ? "admin" : "user"
+                ) && (
                   <li key={item.name}>
-                    <Link href={item.href}>{item.name}</Link>
+                    <Link href={item.href} className="text-black">
+                      {item.name}
+                    </Link>
                   </li>
                 )}
               </Fragment>
             );
           })}
-          <li>
-            <button onClick={() => signOut()}>Logout</button>
-          </li>
+          {user && (
+            <li>
+              <button onClick={() => signOut()}>Logout</button>
+            </li>
+          )}
         </ul>
       </div>
     </div>
