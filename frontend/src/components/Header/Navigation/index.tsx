@@ -1,7 +1,7 @@
 import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import { Fragment } from "react";
-import { HeaderLinkProps, Ranks } from "../../../data/navData";
+import { HeaderLinkProps } from "../../../data/navData";
 import { hasRequiredRank } from "../../../libs/hasRequiredRank";
 import Logo from "../Logo/Logo";
 
@@ -17,7 +17,6 @@ export default function Navigation({ data }: Props) {
         <Logo />
         <ul className="flex gap-3">
           {data.map((item) => {
-            console.log(item.requiredRank, "ADMIN" === Ranks.ADMIN);
             return (
               <Fragment key="">
                 {hasRequiredRank(item.requiredRank, data && "ADMIN") && (
